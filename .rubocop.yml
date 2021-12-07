@@ -1,0 +1,22 @@
+inherit_from:
+ - .rubocop_airbnb.yml
+ - .rubocop_enabled.yml # if you have
+ - .rubocop_disabled.yml # if you have
+ 
+Rails:
+ Enabled: true
+ 
+AllCops:
+ Exclude:
+   - 'vendor/**/*'
+   - 'node_modules/**/*'
+   - 'config/unicorn.rb'
+   - 'bin/*'
+   - 'db/**/*'
+   - 'script/rails'
+   - 'config/**/*'
+   - '**/Capfile'
+   - '**/Guardfile'
+# this is suggest exclude files, add your special file need to exclude on it. 
+# and remove it from this if you don't want to exclude it from rubocop check
+ TargetRubyVersion: 2.6.4
