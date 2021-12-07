@@ -49,5 +49,7 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
-  adapter: postgresql
+  <<: *default
   database: funny_movies_production
+  username: funny_movies
+  password: <%= ENV['FUNNY_MOVIES_DATABASE_PASSWORD'] %>
