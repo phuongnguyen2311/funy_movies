@@ -1,0 +1,10 @@
+= form_for @post do |f|
+  .form-group.row
+    .col-sm-2
+      = f.label :youtube_url, class: 'col-form-label'
+    .col-sm-10
+      = f.text_field :youtube_url, class: 'form-control', required: true
+  .form-group.row
+    .col-sm-2
+    .col-sm-10
+      = f.submit 'Submit', class: 'btn btn-primary btn-lg btn-block'
