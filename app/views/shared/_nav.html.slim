@@ -1,0 +1,21 @@
+
+.d-flex.flex-column.flex-md-row.align-items-center.p-3.px-md-4.mb-3.bg-white.border-bottom.box-shadow
+  .col-sm-4.logo
+    <i class="fas fa-house-user fa-2x"></i>
+    = link_to root_path do
+      h3.font-weight-normal Funny Movies
+  .col-sm-8 style="display: flex; justify-content: flex-end;"
+    - if current_user
+      button.btn-light Welcome #{current_user.email}
+      | &nbsp;  
+      = link_to "Share a movie", share_movie_path, class: 'btn btn-success', role: "button"
+      | &nbsp;
+      = link_to "Logout", destroy_user_session_path, method: :delete, class: 'btn btn-dark', role: "button"
+    - else
+      = form_for :user, method: :post, url: create_session_path, html: { class: 'row g-3' } do |f|
+        .col-auto
+          = f.email_field :email, class: 'form-control', placeholder: 'email'
+        .col-auto
+          = f.password_field :password, class: 'form-control', placeholder: 'password'
+        .col-auto
+          = f.submit 'Login / Register', class: 'btn btn-primary mb-2'
