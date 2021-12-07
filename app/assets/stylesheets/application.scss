@@ -8,6 +8,8 @@
 
 // CSS partials
 @import "components/index";
+@import "toastr/toastr";
+
 .logo {
   display: inline-flex;
 }
