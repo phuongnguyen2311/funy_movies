@@ -12,7 +12,7 @@ class MoviesService
     if valid_youtube_url?
       doc = crawl_data(params[:youtube_url]) if params[:youtube_url].present?
       post.title = doc.css('title')&.first&.content&.strip
-      post.description = doc.search('#watch-description-text')&.first&.content
+      post.description = doc.css('meta')[3]&.attributes['content']&.value
       post.youtube_url = youtube_embed(params[:youtube_url])
     else
       post.errors.add(:youtube_url, 'Invalid Youtube url')
