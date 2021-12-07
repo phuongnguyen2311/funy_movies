@@ -4,12 +4,14 @@ html
     title
       | Funny Movies
     meta[name="viewport" content="width=device-width,initial-scale=1"]
+    meta content="upgrade-insecure-requests" http-equiv="Content-Security-Policy" /
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   body
     = render 'shared/nav'
+    = toastr_flash
     .container
       = yield
-      / = render 'shared/footer'
+    = render 'shared/footer'

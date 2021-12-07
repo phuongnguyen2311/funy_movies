@@ -8,6 +8,17 @@
 
 // CSS partials
 @import "components/index";
+@import "toastr/toastr";
+
 .logo {
   display: inline-flex;
+}
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #ada1a1;
+  color: white;
+  text-align: center;
 }

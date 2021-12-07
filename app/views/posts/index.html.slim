@@ -1,4 +1,16 @@
-h1
-  | Posts#index
-p
-  | Find me in app/views/posts/index.html.erb
+.container
+  - if @posts.empty?
+    h5 No movies
+  - @posts.each do |post|
+    .card.mb-3
+      .row.no-gutters
+        .col-md-4
+          iframe width="420" height="315" src=(post.youtube_url.gsub('watch?v=', 'embed/'))
+        .col-md-8
+          .card-body
+            h5.card-title #{post.title&.gsub('- YouTube', '')}
+            p.share Share by: #{post.user.email}
+            p Description:
+            p.card-text #{post.description&.truncate(250)}
+
+  = will_paginate @posts
